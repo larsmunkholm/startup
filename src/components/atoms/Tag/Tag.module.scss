@@ -1,0 +1,41 @@
+@import "../../../styles/helpers/all";
+
+.tag {
+    border-radius: 8px;
+    display: inline-block;
+    font-size: 10px;
+    line-height: 15px;
+    padding: 0 5px;
+
+    @include mq(md) {
+        border-radius: 11px;
+        font-size: 12px;
+        line-height: 18px;
+        padding: 2px 10px;
+    }
+}
+
+.good {
+    background: #e7ecc9;
+    color: #426716;
+}
+
+.warning {
+    background: #f8e8a6;
+    color: #575757;
+}
+
+.bad {
+    background: #fecad3;
+    color: #a71b34;
+}
+
+.neutral {
+    background: #d0deeb;
+    color: #103f6d;
+}
+
+.alternativeNeutral {
+    background: #cdc0b1;
+    color: #60482b;
+}

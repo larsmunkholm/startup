@@ -1,0 +1,155 @@
+@import "../../../styles/helpers/all";
+
+$loading-indicator-color-1: var(--color-primary-3);
+$loading-indicator-color-2: var(--color-action);
+
+.container {
+    @include border-radius(md);
+    @include box-shadow(1);
+    background-color: var(--color-white);
+    margin: 0 0 25px 0;
+    padding: 10px;
+    position: relative;
+
+    @include mq(md) {
+        padding: 20px;
+    }
+
+    &.smallVerticalPadding {
+        padding: 5px 10px;
+
+        @include mq(md) {
+            padding: 10px 20px;
+        }
+    }
+
+    &.noPadding {
+        padding: 0;
+    }
+
+    &.smallMargin {
+        margin: 0 0 10px 0;
+    }
+
+    & + & {
+        margin: 25px 0;
+
+        &.smallMargin {
+            margin: 10px 0;
+        }
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.indicator {
+    @include border-radius(md);
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity 0.2s ease-in-out;
+
+    &.enabled {
+        opacity: 1;
+    }
+}
+
+.loadingIndicator,
+.alertIndicator {
+    &::after {
+        @include border-radius(md);
+        border: 2px solid;
+        border-image-slice: 1;
+        content: "";
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.loadingIndicator {
+    &::after {
+        border-image-source: linear-gradient(
+            to left,
+            $loading-indicator-color-1,
+            $loading-indicator-color-2
+        );
+    }
+
+    &.enabled {
+        transition-delay: 1s;
+
+        &::after {
+            animation: loadingBorder 2s infinite;
+        }
+    }
+}
+
+.alertIndicator {
+    &::after {
+        border-color: var(--color-alert);
+    }
+
+    &.enabled {
+        &::after {
+            animation: alertBorder 0.25s infinite;
+        }
+    }
+}
+
+@keyframes loadingBorder {
+    0%,
+    100% {
+        border-image-source: linear-gradient(
+            to left,
+            $loading-indicator-color-1,
+            $loading-indicator-color-2
+        );
+    }
+
+    25% {
+        border-image-source: linear-gradient(
+            to top,
+            $loading-indicator-color-1,
+            $loading-indicator-color-2
+        );
+    }
+
+    50% {
+        border-image-source: linear-gradient(
+            to right,
+            $loading-indicator-color-1,
+            $loading-indicator-color-2
+        );
+    }
+
+    75% {
+        border-image-source: linear-gradient(
+            to bottom,
+            $loading-indicator-color-1,
+            $loading-indicator-color-2
+        );
+    }
+}
+
+@keyframes alertBorder {
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}

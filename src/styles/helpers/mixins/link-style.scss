@@ -1,0 +1,10 @@
+@mixin link-style($tagName: a) {
+    #{$tagName} {
+        color: var(--color-primary-1);
+        text-decoration: underline;
+
+        &:hover {
+            color: var(--color-grey-90);
+        }
+    }
+}

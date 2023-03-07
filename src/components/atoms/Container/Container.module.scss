@@ -1,0 +1,58 @@
+@import "../../../styles/helpers/all";
+
+.container {
+    margin: auto;
+    max-width: #{1440px + (30px * 2)};
+    padding: 15px 10px;
+    position: relative;
+
+    @include mq(md) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    @include mq(lg) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    & &:not(.keepNestedPadding) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &.noVerticalPadding {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    &.noRightPadding {
+        padding-right: 0;
+    }
+
+    &.noLeftPadding {
+        padding-left: 0;
+    }
+
+    &.noTopPadding {
+        padding-top: 0;
+    }
+
+    &.noBottomPadding {
+        padding-bottom: 0;
+    }
+
+    &.flexColumn {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &.noOverflow {
+        overflow: hidden;
+    }
+
+    :global(.modules-wrapper) & {
+        height: 100%;
+        padding: 0;
+    }
+}

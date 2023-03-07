@@ -1,0 +1,65 @@
+@import "../../../styles/helpers/all";
+
+.chip {
+    @include border-radius(sm);
+    background-color: var(--color-grey-60);
+    color: var(--color-white);
+    cursor: default;
+    display: inline-flex;
+    overflow: hidden;
+    position: relative;
+
+    .removable {
+        padding-right: 35px;
+    }
+}
+
+.remove {
+    width: 31px;
+}
+
+.removeButton {
+    @include clean-button;
+    align-items: center;
+    color: currentcolor;
+    display: flex;
+    height: 100%;
+    padding: 0 8px;
+    width: 100%;
+
+    &::before {
+        background-color: var(--color-alert);
+        bottom: -1px;
+        content: "";
+        left: -1px;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        right: -1px;
+        top: -1px;
+        transition: opacity 0.1s ease-out;
+    }
+
+    &:hover {
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+.removeIcon {
+    height: 15px;
+    position: relative;
+    width: 15px;
+    z-index: 2;
+}
+
+.label {
+    padding: 3px 0 3px 10px;
+    position: relative;
+    z-index: 2;
+
+    &:only-child {
+        padding-right: 10px;
+    }
+}

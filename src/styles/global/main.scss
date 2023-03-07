@@ -1,0 +1,76 @@
+@use "sass:math";
+
+/* stylelint-disable */
+@import "../../../node_modules/normalize-scss/sass/_normalize.scss";
+/* stylelint-enable */
+
+@import "../helpers/all";
+@import "./colors";
+@import "./themes";
+@import "./fonts";
+
+html {
+    box-sizing: border-box;
+    color: var(--color-grey-80);
+    height: 100%;
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+}
+
+body {
+    background-color: var(--color-grey-10);
+    font-family: $font-family;
+    font-size: 14px;
+    margin: 0;
+    // BEWARE! Using "height: 100%" in body will break the scroll lock used when opening the mobile menu.
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+/* stylelint-disable */
+#__root {
+    height: 100%;
+}
+/* stylelint-enable */
+
+.visually-hidden {
+    @include visuallyhidden;
+}
+
+.mobile-only {
+    @media (min-width: 720px) {
+        display: none;
+    }
+}
+
+.mobile-hide {
+    display: none;
+
+    @media (min-width: 720px) {
+        display: initial;
+    }
+}
+
+.mobile-tablet-only {
+    @media (min-width: 992px) {
+        display: none;
+    }
+}
+
+.mobile-tablet-hide {
+    display: none;
+
+    @media (min-width: 992px) {
+        display: initial;
+    }
+}
+
+.break-all {
+    word-break: break-all;
+}

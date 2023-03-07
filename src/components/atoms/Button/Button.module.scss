@@ -1,0 +1,226 @@
+@use "sass:color";
+@use "sass:math";
+@import "../../../styles/helpers/all";
+
+.button {
+    @include clean-button;
+    @include border-radius(sm);
+    align-items: center;
+    display: inline-flex;
+    font-size: 14px;
+    min-height: 35px;
+    padding: 3px 15px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+
+    &::before {
+        @include border-radius(sm);
+        border: 1px solid transparent;
+        content: "";
+        inset: 0;
+        position: absolute;
+        transition: 0.2s ease-out;
+        transition-property: filter, background-color;
+        will-change: filter, background-color;
+    }
+
+    &:not(.disabled):hover::before {
+        filter: brightness(0.9);
+    }
+
+    &.small {
+        min-height: 28px;
+        padding: 2px 12px;
+    }
+
+    &.large {
+        min-height: 44px;
+        padding: 10px 15px;
+    }
+
+    &.fullWidth {
+        width: 100%;
+    }
+
+    &.disabled {
+        color: var(--color-grey-40);
+        cursor: default;
+        pointer-events: none;
+
+        &::before {
+            background-color: var(--color-grey-10);
+        }
+    }
+
+    &.hasIcon {
+        text-align: left;
+    }
+
+    &.iconOnly {
+        padding-left: #{math.div(35 - 18, 2)}px;
+        padding-right: #{math.div(35 - 18, 2)}px;
+    }
+
+    &.iconOnly.large {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    &.ghost {
+        font-weight: 600;
+
+        &::before {
+            background-color: transparent;
+            border-color: currentcolor;
+        }
+
+        // TODO: Make the disabled color follow the currentColor disable with opacity
+        &.disabled {
+            color: var(--color-grey-60);
+
+            &::before {
+                border-color: var(--color-grey-20);
+            }
+        }
+    }
+
+    &.noWrap {
+        white-space: nowrap;
+    }
+
+    .content {
+        align-items: center;
+        display: inline-flex;
+        flex: 0 1 auto;
+        justify-content: space-between;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    .spinner {
+        left: 50%;
+        line-height: 0;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        + .content {
+            opacity: 0;
+        }
+    }
+
+    &.iconRight {
+        .content {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+.title {
+    flex: 1 1 100%;
+    text-align: left;
+
+    &:only-child {
+        text-align: center;
+    }
+}
+
+.icon {
+    flex: 0 0 18px;
+    height: 18px;
+    margin-right: 10px;
+    width: 18px;
+
+    .small & {
+        flex-basis: 12px;
+        height: 12px;
+        margin-right: 5px;
+        width: 12px;
+    }
+
+    .large & {
+        flex-basis: 24px;
+        height: 24px;
+        margin-right: 10px;
+        width: 24px;
+    }
+
+    .iconRight & {
+        margin-left: 10px;
+        margin-right: 0;
+    }
+
+    .iconRight.small & {
+        margin-left: 5px;
+    }
+
+    .iconRight.large & {
+        margin-left: 10px;
+    }
+
+    &:only-child {
+        margin: 0;
+    }
+}
+
+.action {
+    color: var(--color-white);
+
+    &.ghost {
+        color: var(--color-action);
+    }
+
+    &::before {
+        background-color: var(--color-action);
+    }
+}
+
+.alert {
+    color: var(--color-white);
+
+    &.ghost {
+        color: var(--color-alert);
+    }
+
+    &::before {
+        background-color: var(--color-alert);
+    }
+}
+
+.white {
+    color: var(--color-black);
+
+    &.ghost {
+        color: var(--color-white);
+    }
+
+    &::before {
+        background-color: var(--color-white);
+    }
+}
+
+.grey {
+    color: var(--color-white);
+
+    &.ghost {
+        color: var(--color-grey-80);
+    }
+
+    &::before {
+        background-color: var(--color-grey-80);
+    }
+}
+
+.lightGrey {
+    color: var(--color-grey-60);
+
+    &.ghost {
+        color: var(--color-grey-60);
+    }
+
+    &::before {
+        background-color: var(--color-grey-5);
+    }
+}

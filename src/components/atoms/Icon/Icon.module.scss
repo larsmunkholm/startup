@@ -1,0 +1,17 @@
+@import "../../../styles/helpers/all";
+
+.wrapper {
+    display: inline-block;
+    font-size: 0;
+
+    svg {
+        vertical-align: inherit;
+    }
+
+    &.fullSize {
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

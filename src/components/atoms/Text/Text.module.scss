@@ -1,0 +1,82 @@
+@import "../../../styles/helpers/all";
+
+.wrapper {
+    @include link-style();
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    transition: opacity 0.25s ease;
+
+    &.alignCenter {
+        align-items: center;
+    }
+
+    &.bold {
+        font-weight: 600;
+    }
+
+    &.dimmed {
+        opacity: 0.5;
+    }
+
+    &.paddingBottom {
+        padding-bottom: 25px;
+    }
+
+    &.smallText {
+        font-size: 12px;
+    }
+
+    > p,
+    > ul,
+    > ol {
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    hr {
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid var(--color-grey-20);
+        height: 0;
+        margin: 20px 0;
+        padding: 0;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin: 0;
+            padding-left: 1.5em;
+
+            &::before {
+                content: "\2022";
+                margin-left: -1.5em;
+                margin-right: 0.3em;
+                text-align: right;
+                width: 1.2em;
+            }
+        }
+    }
+
+    ol {
+        counter-reset: number;
+
+        li {
+            counter-increment: number;
+
+            &::before {
+                content: counter(number) ".";
+                width: auto;
+            }
+        }
+    }
+}

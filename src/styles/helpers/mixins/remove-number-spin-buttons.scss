@@ -1,0 +1,12 @@
+// Remove spin buttons from number inputs.
+@mixin remove-number-spin-buttons {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        appearance: none;
+        margin: 0;
+    }
+
+    &[type="number"] {
+        appearance: textfield;
+    }
+}

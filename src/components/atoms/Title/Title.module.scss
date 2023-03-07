@@ -1,0 +1,68 @@
+@import "../../../styles/helpers/all";
+
+.title {
+    align-items: center;
+    color: var(--title-color, var(--color-grey-80));
+    display: flex;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 20px;
+
+    @include mq(sm) {
+        max-width: 700px;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &.noMargin {
+        margin: 0;
+    }
+
+    &.fullWidth {
+        @include mq(sm) {
+            max-width: 100%;
+        }
+    }
+
+    &.inheritColor {
+        color: inherit;
+    }
+}
+
+.h2 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.titleTag {
+    flex: 0 1 auto;
+    font: inherit;
+    hyphens: auto;
+    margin: 0;
+
+    &.clamp {
+        @include line-clamp(var(--title-line-clamp));
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.appendix {
+    flex: 0 0 auto;
+    font: initial;
+}

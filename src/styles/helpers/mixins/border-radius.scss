@@ -1,0 +1,10 @@
+@use "sass:map";
+
+$sizes: (
+    "sm": "small",
+    "md": "medium",
+);
+
+@mixin border-radius($size: sm) {
+    border-radius: var(--border-radius-#{map.get($sizes, $size)});
+}

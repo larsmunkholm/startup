@@ -1,0 +1,36 @@
+@import "../../../styles/helpers/all";
+
+.buttonLink {
+    @include clean-button;
+    align-items: center;
+    color: var(--color-primary-1);
+    display: inline-flex;
+    user-select: none;
+
+    &:disabled {
+        color: var(--color-grey-20);
+    }
+
+    &:hover {
+        color: var(--color-grey-90);
+    }
+}
+
+.icon {
+    flex: 0 0 16px;
+    height: 16px;
+    margin-right: 5px;
+    width: 16px;
+}
+
+.title {
+    flex: 0 0 auto;
+
+    .buttonLink:hover:not(:disabled) & {
+        color: var(--color-grey-90);
+    }
+
+    .underlined & {
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,69 @@
+@import "../../../styles/helpers/all";
+
+.container {
+    @include border-radius(md);
+    @include box-shadow(1);
+    color: var(--color-white);
+    overflow: hidden;
+
+    @include mq(md) {
+        align-items: stretch;
+        display: flex;
+
+        &.reverse {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+.imageWrapper {
+    aspect-ratio: 300 / 235;
+    user-select: none;
+
+    @include mq(sm) {
+        aspect-ratio: 650 / 350;
+    }
+
+    @include mq(md) {
+        flex: 0 0 50%;
+        max-width: 50%;
+        min-height: 100%;
+        text-align: right;
+    }
+}
+
+.image {
+    height: calc(100% + 2px);
+    margin: -1px 0 0 -1px;
+    width: calc(100% + 2px);
+
+    img {
+        height: 100%;
+        object-fit: cover;
+        vertical-align: bottom;
+        width: 100%;
+    }
+}
+
+.contentWrapper {
+    background: var(--color-grey-90);
+
+    @include mq(md) {
+        align-items: center;
+        display: flex;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+.content {
+    padding: 15px 20px 25px;
+
+    @include mq(sm) {
+        flex: 0 0 100%;
+    }
+
+    @include mq(md) {
+        padding: 45px;
+    }
+}

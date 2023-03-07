@@ -1,0 +1,15 @@
+@mixin line-clamp($lines: 2, $fallback-line-height: 1) {
+    @if type-of($lines) == "number" {
+        max-height: $lines * $fallback-line-height;
+    }
+
+    @supports (-webkit-line-clamp: 2) {
+        /* autoprefixer: ignore next */
+        -webkit-box-orient: vertical; // auto-prefixer removes this, which is why it's disabled for this line.
+        display: -webkit-box;
+        -webkit-line-clamp: $lines;
+        max-height: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

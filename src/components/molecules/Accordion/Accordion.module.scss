@@ -1,0 +1,75 @@
+@import "../../../styles/helpers/all";
+
+.wrapper {
+    border-bottom: var(--accordion-border, 1px solid var(--color-grey-60));
+}
+
+.header {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--accordion-header-padding, 30px 10px);
+    text-transform: uppercase;
+    width: 100%;
+}
+
+// Header
+
+.title {
+    color: var(--accordion-label-color, var(--color-grey-90));
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: initial;
+
+    .isLarge & {
+        font-size: 32px;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+}
+
+.toolbar {
+    display: flex;
+    gap: 20px;
+}
+
+.tagline {
+    color: var(--color-grey-90);
+    display: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: initial;
+
+    .isLarge & {
+        font-size: 26px;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+    @include mq(md) {
+        display: block;
+    }
+}
+
+// Toggle
+
+.toggleWrapper {
+    align-items: center;
+    color: var(--accordion-toggle-color, var(--color-grey-90));
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.toggleIcon {
+    color: var(--accordion-icon-color, currentColor);
+    width: var(--accordion-toggle-size, 15px);
+}
+
+// Children
+
+.content {
+    padding: 0 10px;
+}

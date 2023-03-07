@@ -1,0 +1,60 @@
+@import "../../../styles/helpers/all";
+
+.alert {
+    align-items: center;
+    display: flex;
+    padding: 19px 16px;
+}
+
+.icon {
+    flex-shrink: 0;
+    height: 18px;
+    margin-right: 16px;
+    width: 18px;
+}
+
+.close {
+    background: transparent;
+    border: 0;
+    color: currentcolor;
+    cursor: pointer;
+    flex-shrink: 0;
+    height: 16px;
+    margin-left: auto;
+    padding: 0;
+    width: 16px;
+}
+
+.alertText {
+    margin-right: 10px;
+
+    a {
+        color: currentcolor;
+    }
+}
+
+.shadow {
+    @include box-shadow(2);
+}
+
+/*colors*/
+.error {
+    background: var(--color-alert);
+}
+
+.success {
+    background: var(--color-action);
+}
+
+.error,
+.success {
+    color: var(--color-white);
+}
+
+.warning {
+    background: var(--color-yellow-3);
+}
+
+.info {
+    background: var(--color-brown-4);
+}

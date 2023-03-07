@@ -1,0 +1,42 @@
+@import "../../../styles/helpers/all";
+
+.wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+}
+
+.iconWrapper {
+    align-items: center;
+    background-color: var(--color-grey-10);
+    border-radius: 100%;
+    display: flex;
+    font-size: 30px;
+    height: 80px;
+    justify-content: center;
+    padding: 15px;
+    text-align: center;
+    width: 80px;
+}
+
+.icon {
+    color: var(--color-grey-80);
+    height: 100%;
+    width: 100%;
+}
+
+.emptyTitle {
+    margin: 20px 0 10px;
+}
+
+.text {
+    @include mq(md) {
+        max-width: max(50%, 420px);
+    }
+}
+
+.cta {
+    margin-top: 15px;
+}

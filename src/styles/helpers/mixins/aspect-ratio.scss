@@ -1,0 +1,9 @@
+@use "sass:math";
+
+/// Set aspect ratio as `padding-top`
+/// @param {umber} $x - width
+/// @param {umber} $y - height
+/// @example @include ratio(16, 9);
+@mixin aspect-ratio($x, $y) {
+    padding-top: math.percentage(math.div($y, $x));
+}
